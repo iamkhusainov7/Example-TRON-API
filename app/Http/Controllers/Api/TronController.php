@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Tron;
 use \IEXBase\TronAPI\Tron as TronApi;
 use \IEXBase\TronAPI\Provider\HttpProvider;
+use Illuminate\Http\Request;
 
 class TronController extends Controller
 {
@@ -34,6 +35,35 @@ class TronController extends Controller
                 "message" => 'Wallet was successfully created',
                 "wallet-address" => $address,
             ], 201);
+    }
+
+    /**
+     * Gets a Tron network account balance information and returns as JSON format.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Illuminate\Contracts\Routing\ResponseFactory::json containing balance information
+     */
+    public function getBalance(Request $request)
+    {
+        if (!$request->query('account_address')) {
+            return response()
+                ->json(["message" =>  "Account address parameter is not specified"], 400);
+        }
+
+        $account = Tron::where("address", $request->query('account_address'))
+            ->first();
+
+        if (!$account) {
+            return response()
+                ->json(["message" => 'Account address not found!'], 404);
+        }
+
+        $tron = $this->connectTron();
+
+        $balance = $tron->getBalance($account->address, true);
+
+        return response()
+            ->json(["balance" => $balance], 200);
     }
 
     /**
