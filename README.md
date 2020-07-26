@@ -14,8 +14,9 @@
 ### Bieganie i użytkowanie
 * krok 1: upewnij się, że „rozszerzenie = gmp” jest włączone w php.ini. Jeśli nie, włącz go. W przeciwnym razie biblioteka TronApi nie zostanie zainstalowana.
 * krok 2: w linii poleceń uruchom "composer install".
-* krok 3: Możesz użyć listonosza w tym kroku, aby wysłać żądanie API. URL: „/ api / create-create-tron-account”, metoda: „POST”.
-* krok 4. W celu uzyskania informacji o saldzie na rachunku składa kolejną prośbę. URL: "/ api / get-balance? Account_address = 'wklej tutaj adres portfela'", metoda: "GET".
+* krok 3: w wierszu poleceń uruchom „php artisan migrate”.
+* krok 4: Możesz użyć listonosza w tym kroku, aby wysłać żądanie API. URL: „/ api / create-create-tron-account”, metoda: „POST”.
+* krok 5. W celu uzyskania informacji o saldzie na rachunku składa kolejną prośbę. URL: "/ api / get-balance? Account_address = 'wklej tutaj adres portfela'", metoda: "GET".
 
 
 # Technical task for a Junior PHP position
@@ -34,5 +35,6 @@
 ### Running and usage
 * step 1: Make sure that "extension=gmp" is enabled in php.ini. If not, turn it on. Otherwise TronApi library will not be installed
 * step 2: in the command line run "composer install".
-* step 3: You can use postman for this step to make an API request. URL: "/api/create-create-tron-account", method: "POST".
-* step 4. In order to get information regarding the balance of the account, make another request. URL: "/api/get-balance?account_address='paste address of the wallet here'", method: "GET".
+* step 3: in the command line run "php artisan migrate".
+* step 4: You can use postman for this step to make an API request. URL: "/api/create-create-tron-account", method: "POST".
+* step 5. In order to get information regarding the balance of the account, make another request. URL: "/api/get-balance?account_address='paste address of the wallet here'", method: "GET".
