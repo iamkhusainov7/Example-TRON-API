@@ -1,79 +1,38 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Zadanie techniczne na stanowisko Junior PHP
+## Opis
+### TronApi
+ 
+### Zadania techniczne
+* Stworzenie nowego projektu w oparciu o najnowszą dostępną stabilną wersję frameworka Laravel.
+* Blokowanie wszystkich ścieżek, pozostawiając tylko routing API.
+* Instalowanie pakietu https://github.com/iexbase/tron-api przez kompozytor.
+* Stworzenie migracji w celu utworzenia tabeli portfeli z kolumnami: id, adres, sekret, znaczniki czasu.
+* Stworzenie kontrolera Tron w API z dwiema funkcjami: przy tworzeniu portfela i pobieraniu salda portfela (opisane poniżej).
+* Funkcja tworzenia portfela: wykorzystanie wcześniej dodanego pakietu, stworzenie funkcji (i jej punktu końcowego), która wygeneruje nowy adres portfela w sieci Tron i zapisze ten adres w bazie danych (kolumna adresu) oraz klucz prywatny za to (tajna kolumna). Odpowiedź JSON powinna zwrócić informację o wygenerowanym adresie.
+* Funkcja sprawdzania salda: korzystając z dodanego wcześniej pakietu, tworzenie funkcji (i jej punktu końcowego), która po wpisaniu adresu portfela w parametrze URL zwróci dostępną ilość kryptowaluty TRX w odpowiedzi JSON.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+### Bieganie i użytkowanie
+* krok 1: upewnij się, że „rozszerzenie = gmp” jest włączone w php.ini. Jeśli nie, włącz go. W przeciwnym razie biblioteka TronApi nie zostanie zainstalowana.
+* krok 2: w linii poleceń uruchom "composer install".
+* krok 3: Możesz użyć listonosza w tym kroku, aby wysłać żądanie API. URL: „/ api / create-create-tron-account”, metoda: „POST”.
+* krok 4. W celu uzyskania informacji o saldzie na rachunku składa kolejną prośbę. URL: "/ api / get-balance? Account_address = 'wklej tutaj adres portfela'", metoda: "POST".
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Technical task for a Junior PHP position
+## Description
+### TronApi
+ 
+### Technical tasks
+* Creation of a new project based on the latest available, stable version of the Laravel framework. 
+* Blocking all paths, leaving only API routing.
+* Installing the package https://github.com/iexbase/tron-api via composer.
+* Creation of migration to create a wallets table, with columns: id, address, secret, timestamps.
+* Creating a Tron Controller in API with two functions: on creating a wallet and downloading the wallet balance (described below).
+* The function of creating a wallet: using a previously added package, creating a function (and an endpoint for it) that will generate a new wallet address in the Tron network and save this address in the database (address column) and the private key for it (secret column). The JSON response should return information about the generated address.
+* Balance checking function: using a previously added package, creating a function (and an endpoint for it), which, after entering the wallet address in the URL parameter, will return the available amount of TRX cryptocurrency in the JSON response.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Running and usage
+* step 1: Make sure that "extension=gmp" is enabled in php.ini. If not, turn it on. Otherwise TronApi library will not be installed
+* step 2: in the command line run "composer install".
+* step 3: You can use postman for this step to make an API request. URL: "/api/create-create-tron-account", method: "POST".
+* step 4. In order to get information regarding the balance of the account makes another request. URL: "/api/get-balance?account_address='paste address of the wallet here'", method: "POST".

@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/create-tron-account', 'Api\TronController@createWallet');
+Route::post('/create-tron-account', 'Api\TronController@createWallet');
 Route::get('/get-balance', 'Api\TronController@getBalance');
